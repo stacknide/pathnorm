@@ -45,6 +45,10 @@
   },
   "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stacknide/pathnorm"
+  },
   "bugs": {
     "url": "https://github.com/stacknide/pathnorm/issues"
   },
