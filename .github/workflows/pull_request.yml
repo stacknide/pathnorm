@@ -73,5 +73,7 @@ jobs:
           cache: "yarn"
       - run: corepack enable
       - run: yarn install --frozen-lockfile
+      - name: Build package for tests
+        run: yarn build
       - name: Run tests
         run: yarn test
