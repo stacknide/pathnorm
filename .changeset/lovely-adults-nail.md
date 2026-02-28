@@ -2,4 +2,4 @@
 "@knide/pathnorm": patch
 ---
 
-add bundlephobia facts in README
+docs: update README examples + add bundlephobia facts
