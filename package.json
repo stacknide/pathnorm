@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "publish": "yarn changeset publish",
-    "version": "yarn changeset",
+    "bump": "yarn changeset",
     "dev": "yarn workspace @knide/pathnorm dev",
     "build": "yarn workspace @knide/pathnorm build",
     "test": "yarn workspace pathnorm-test test"
