@@ -1,5 +1,5 @@
 {
-  "name": "pathnorm",
+  "name": "@knide/pathnorm",
   "version": "0.0.0",
   "description": "Normalize and join path and URL segments. Supports URLs, POSIX paths, Win32 drive letters, UNC, and namespace paths.",
   "source": "src/index.ts",

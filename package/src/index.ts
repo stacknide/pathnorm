@@ -9,7 +9,7 @@
  * - Win32 namespace paths (`\\?\C:\foo` or `\\.\C:\foo`)
  *
  * For browser or web-only contexts where Win32 paths are never needed,
- * prefer `pathnorm/posix` instead — it's lighter and purpose-built for
+ * prefer `@knide/pathnorm/posix` instead — it's lighter and purpose-built for
  * URLs and POSIX paths.
  *
  * @param parts - One or more path/URL segments to join and normalize

@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "publish": "yarn changeset publish",
-    "version": "yarn changeset",
-    "dev": "yarn workspace pathnorm dev",
-    "build": "yarn workspace pathnorm build",
+    "bump": "yarn changeset",
+    "dev": "yarn workspace @knide/pathnorm dev",
+    "build": "yarn workspace @knide/pathnorm build",
     "test": "yarn workspace pathnorm-test test"
   },
   "devDependencies": {
@@ -20,7 +20,8 @@
   "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",
   "workspaces": [
-    "package"
+    "package",
+    "test"
   ],
   "packageManager": "yarn@4.12.0"
 }

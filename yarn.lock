@@ -608,6 +608,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@knide/pathnorm@workspace:*, @knide/pathnorm@workspace:package":
+  version: 0.0.0-use.local
+  resolution: "@knide/pathnorm@workspace:package"
+  dependencies:
+    "@biomejs/biome": "npm:2.4.4"
+    lefthook: "npm:^2.1.1"
+    tsup: "npm:^8.5.1"
+    typescript: "npm:^5.9.3"
+  languageName: unknown
+  linkType: soft
+
 "@manypkg/find-root@npm:^1.1.0":
   version: 1.1.0
   resolution: "@manypkg/find-root@npm:1.1.0"
@@ -2243,18 +2254,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pathnorm-test@workspace:test"
   dependencies:
-    pathnorm: "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"pathnorm@workspace:*, pathnorm@workspace:package":
-  version: 0.0.0-use.local
-  resolution: "pathnorm@workspace:package"
-  dependencies:
-    "@biomejs/biome": "npm:2.4.4"
-    lefthook: "npm:^2.1.1"
-    tsup: "npm:^8.5.1"
-    typescript: "npm:^5.9.3"
+    "@knide/pathnorm": "workspace:*"
   languageName: unknown
   linkType: soft
 
