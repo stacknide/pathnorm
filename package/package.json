@@ -9,43 +9,20 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "default": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./react": {
       "types": "./dist/react.d.ts",
-      "import": {
-        "types": "./dist/react.d.ts",
-        "default": "./dist/react.mjs"
-      },
-      "default": {
-        "types": "./dist/react.d.ts",
-        "default": "./dist/react.js"
-      }
-    },
-    "./dist/react": {
-      "types": "./dist/react.d.ts",
-      "import": {
-        "types": "./dist/react.d.ts",
-        "default": "./dist/react.mjs"
-      },
-      "default": {
-        "types": "./dist/react.d.ts",
-        "default": "./dist/react.js"
-      }
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.js"
     }
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "**/*"
+    "**"
   ],
   "scripts": {
     "dev:tsc": "tsc -w -p tsc.tsconfig.json",
