@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "workspace",
+  "version": "1.0.0",
+  "scripts": {
+    "publish": "yarn changeset publish",
+    "version": "yarn changeset",
+    "dev": "yarn workspace your-package-name dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.4",
+    "@changesets/cli": "^2.29.8",
+    "concurrently": "^9.2.1",
+    "lefthook": "^2.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "author": "Author of your-package-name",
+  "license": "MIT",
+  "workspaces": [
+    "package"
+  ],
+  "packageManager": "yarn@4.12.0"
+}
