@@ -20,7 +20,8 @@
   "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",
   "workspaces": [
-    "package"
+    "package",
+    "test"
   ],
   "packageManager": "yarn@4.12.0"
 }

@@ -44,3 +44,6 @@ jobs:
       - name: Run Package Build
         working-directory: package
         run: yarn build
+
+      - name: Run Workspace Tests
+        run: yarn test
