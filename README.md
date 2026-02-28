@@ -1,4 +1,4 @@
-# pathnorm
+# @knide/pathnorm
 
 Normalize and join path/URL segments. Full Win32, UNC, POSIX, and URL support.
 
@@ -8,6 +8,9 @@ Read the [`README.md`](./package/README.md) documentation for more details.
 
 ```sh
 yarn install
+yarn dev
+
+# Build and test
 yarn build
 yarn test
 ```

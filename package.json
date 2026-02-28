@@ -5,8 +5,8 @@
   "scripts": {
     "publish": "yarn changeset publish",
     "version": "yarn changeset",
-    "dev": "yarn workspace pathnorm dev",
-    "build": "yarn workspace pathnorm build",
+    "dev": "yarn workspace @knide/pathnorm dev",
+    "build": "yarn workspace @knide/pathnorm build",
     "test": "yarn workspace pathnorm-test test"
   },
   "devDependencies": {

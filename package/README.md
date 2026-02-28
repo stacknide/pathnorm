@@ -1,4 +1,4 @@
-# pathnorm
+# @knide/pathnorm
 
 Normalize and join path or URL segments into a single clean string.
 
@@ -10,30 +10,30 @@ Normalize and join path or URL segments into a single clean string.
 ## Installation
 
 ```sh
-npm install pathnorm
+npm install @knide/pathnorm
 # or
-yarn add pathnorm
+yarn add @knide/pathnorm
 # or
-pnpm add pathnorm
+pnpm add @knide/pathnorm
 ```
 
 ## Two Entry Points
 
-| Import | Win32 | UNC | Namespace | URLs | POSIX |
-|---|---|---|---|---|---|
-| `pathnorm` | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `pathnorm/posix` | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Import                  | Win32 | UNC | Namespace | URLs | POSIX |
+|-------------------------|-------|-----|-----------|------|-------|
+| `@knide/pathnorm`       |  ✅   | ✅  |    ✅     |  ✅  |   ✅  |  
+| `@knide/pathnorm/posix` |  ❌   | ❌  |    ❌     |  ✅  |   ✅  |  
 
-Use `pathnorm/posix` in browser or web server contexts where Win32 paths will never appear — it's lighter and purpose-built for URLs and POSIX paths.
+Use `@knide/pathnorm/posix` in browser or web server contexts where Win32 paths will never appear — it's lighter and purpose-built for URLs and POSIX paths.
 
 ---
 
-## `pathnorm`
+## `@knide/pathnorm`
 
 Exports `np` and `unixNp`.
 
 ```ts
-import { np, unixNp } from 'pathnorm'
+import { np, unixNp } from '@knide/pathnorm'
 ```
 
 ### `np(...parts)`
@@ -41,7 +41,7 @@ import { np, unixNp } from 'pathnorm'
 Joins and normalizes path or URL segments. Detects and handles URLs, POSIX paths, Win32 drive letters, UNC paths, and Win32 namespace paths automatically.
 
 ```ts
-import { np } from 'pathnorm'
+import { np } from '@knide/pathnorm'
 // URLs
 np("https://abc.def//212/", "dw//we", "23123")
 // → "https://abc.def/212/dw/we/23123"
@@ -81,7 +81,7 @@ np("C:\\foo//bar\\\\baz")
 Like `np`, but always returns a Unix-style path. Useful when working with Win32 paths but the consumer expects forward slashes.
 
 ```ts
-import { unixNp } from 'pathnorm'
+import { unixNp } from '@knide/pathnorm'
 unixNp("C:\\foo\\\\bar", "baz")
 // → "C:/foo/bar/baz"
 
@@ -98,12 +98,12 @@ unixNp("/foo//bar", "baz")
 
 ---
 
-## `pathnorm/posix`
+## `@knide/pathnorm/posix`
 
 Exports `np`. No Win32 support — ideal for browser and web server environments.
 
 ```ts
-import { np } from 'pathnorm/posix'
+import { np } from '@knide/pathnorm/posix'
 ```
 
 ### `np(...parts)` (POSIX + URLs)
@@ -111,7 +111,7 @@ import { np } from 'pathnorm/posix'
 Joins and normalizes URL or POSIX path segments.
 
 ```ts
-import { np } from 'pathnorm/posix'
+import { np } from '@knide/pathnorm/posix'
 // URLs
 np("https://abc.def//212/", "dw//we", "23123")
 // → "https://abc.def/212/dw/we/23123"

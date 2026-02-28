@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { np, unixNp } from 'pathnorm'
+import { np, unixNp } from '@knide/pathnorm'
 
 const cases = [
 	{

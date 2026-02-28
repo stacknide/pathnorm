@@ -7,6 +7,6 @@
     "test": "node --test ./*.test.mjs"
   },
   "dependencies": {
-    "pathnorm": "workspace:*"
+    "@knide/pathnorm": "workspace:*"
   }
 }
