@@ -1,11 +1,15 @@
 # @knide/pathnorm
 
+[![npm version](https://img.shields.io/npm/v/@knide/pathnorm)](https://www.npmjs.com/package/@knide/pathnorm)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@knide/pathnorm)](https://bundlephobia.com/package/@knide/pathnorm)
+[![License](https://img.shields.io/npm/l/@knide/pathnorm)](./LICENSE)
+
 Normalize and join path or URL segments into a single clean string.
 
 - Zero dependencies
-- Dual CJS + ESM build
 - Full TypeScript support
 - Tree-shakeable
+- **< 500B** minified + gzipped — use `@knide/pathnorm/posix` for an even lighter bundle in browser-only contexts
 
 ## Installation
 
@@ -36,64 +40,62 @@ Exports `np` and `unixNp`.
 import { np, unixNp } from '@knide/pathnorm'
 ```
 
-### `np(...parts)`
+### `np(...parts)` (POSIX + Win32 + UNC + URLs)
 
 Joins and normalizes path or URL segments. Detects and handles URLs, POSIX paths, Win32 drive letters, UNC paths, and Win32 namespace paths automatically.
 
 ```ts
 import { np } from '@knide/pathnorm'
-// URLs
-np("https://abc.def//212/", "dw//we", "23123")
-// → "https://abc.def/212/dw/we/23123"
 
-np("exp://abc.def//212/", "dw/we")
-// → "exp://abc.def/212/dw/we"
+// URLs
+np("https://example.com//api/", "v1//users", "profile")
+// → "https://example.com/api/v1/users/profile"
+
+np("exp://com.myapp//screens/", "home")
+// → "exp://com.myapp/screens/home"
 
 // POSIX
-np("abc.def//212/", "dwwe", "23123")
-// → "abc.def/212/dwwe/23123"
+np("/var/www//html/", "assets//images", "logo.png")
+// → "/var/www/html/assets/images/logo.png"
 
-np("foo//bar", "/baz")
-// → "/foo/bar/baz"
-
-np("/foo//bar", "baz")
-// → "/foo/bar/baz"
+np("uploads//images", "/photos")
+// → "/uploads/images/photos"
 
 // Win32 drive letter
-np("C:\\foo\\\\bar", "baz")
-// → "C:\foo\bar\baz"
+np("C:\\Users\\\\Alice\\Documents", "report.pdf")
+// → "C:\Users\Alice\Documents\report.pdf"
 
 // UNC
-np("\\\\server\\share\\\\folder", "file.txt")
-// → "//server/share/folder/file.txt"
+np("\\\\server01\\share\\\\docs", "letter.txt")
+// → "//server01/share/docs/letter.txt"
 
 // Win32 namespace
-np("\\\\?\\C:\\foo\\\\bar", "baz")
-// → "//?/C:/foo/bar/baz"
+np("\\\\?\\C:\\Users\\\\Alice", "report.pdf")
+// → "//?/C:/Users/Alice/report.pdf"
 
-// Mixed slashes in Win32
-np("C:\\foo//bar\\\\baz")
-// → "C:\foo\bar\baz"
+// Mixed slashes
+np("C:\\projects//my-app\\\\src")
+// → "C:\projects\my-app\src"
 ```
 
-### `unixNp(...parts)`
+### `unixNp(...parts)` (always forward slashes)
 
-Like `np`, but always returns a Unix-style path. Useful when working with Win32 paths but the consumer expects forward slashes.
+Like `np`, but always returns forward slashes. Useful when working with Win32 paths in a Unix-expecting context.
 
 ```ts
 import { unixNp } from '@knide/pathnorm'
-unixNp("C:\\foo\\\\bar", "baz")
-// → "C:/foo/bar/baz"
 
-unixNp("\\\\server\\share\\\\folder", "file.txt")
-// → "//server/share/folder/file.txt"
+unixNp("C:\\Users\\\\Alice\\Documents", "report.pdf")
+// → "C:/Users/Alice/Documents/report.pdf"
 
-unixNp("\\\\?\\C:\\foo\\\\bar", "baz")
-// → "//?/C:/foo/bar/baz"
+unixNp("\\\\server01\\share\\\\docs", "letter.txt")
+// → "//server01/share/docs/letter.txt"
 
-// POSIX paths pass through unchanged
-unixNp("/foo//bar", "baz")
-// → "/foo/bar/baz"
+unixNp("\\\\?\\C:\\Users\\\\Alice", "report.pdf")
+// → "//?/C:/Users/Alice/report.pdf"
+
+unixNp("/var/www//html", "index.html")
+// → "/var/www/html/index.html"
 ```
 
 ---
@@ -108,26 +110,22 @@ import { np } from '@knide/pathnorm/posix'
 
 ### `np(...parts)` (POSIX + URLs)
 
-Joins and normalizes URL or POSIX path segments.
-
 ```ts
 import { np } from '@knide/pathnorm/posix'
-// URLs
-np("https://abc.def//212/", "dw//we", "23123")
-// → "https://abc.def/212/dw/we/23123"
 
-np("exp://abc.def//212/", "dw/we")
-// → "exp://abc.def/212/dw/we"
+// URLs
+np("https://example.com//api/", "v1//users", "profile")
+// → "https://example.com/api/v1/users/profile"
+
+np("exp://com.myapp//screens/", "home")
+// → "exp://com.myapp/screens/home"
 
 // POSIX
-np("abc.def//212/", "dwwe", "23123")
-// → "abc.def/212/dwwe/23123"
+np("/var/www//html/", "assets//images", "logo.png")
+// → "/var/www/html/assets/images/logo.png"
 
-np("foo//bar", "/baz")
-// → "/foo/bar/baz"
-
-np("/foo//bar", "baz")
-// → "/foo/bar/baz"
+np("uploads//images", "/photos")
+// → "/uploads/images/photos"
 
 // Typical web usage
 np(window.location.origin, "/api/proxy//betterauth")
@@ -144,7 +142,7 @@ np(window.location.origin, "/api/proxy//betterauth")
 - Trailing slashes are not preserved.
 
 ```ts
-// Only first scheme is treated as prefix
-np("exp://", "sdfasdf", "abc.def//212/", "dw//we", "23123", "https://")
-// → "exp://sdfasdf/abc.def/212/dw/we/23123/https:/"
+// Only the first segment's scheme is treated as a URL prefix
+np("https://example.com//", "/api/v1", "http://users")
+// → "https://example.com/api/v1/http:/users"
 ```
