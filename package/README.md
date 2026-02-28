@@ -1,11 +1,15 @@
 # @knide/pathnorm
 
+[![npm version](https://img.shields.io/npm/v/@knide/pathnorm)](https://www.npmjs.com/package/@knide/pathnorm)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@knide/pathnorm)](https://bundlephobia.com/package/@knide/pathnorm)
+[![License](https://img.shields.io/npm/l/@knide/pathnorm)](./LICENSE)
+
 Normalize and join path or URL segments into a single clean string.
 
 - Zero dependencies
-- Dual CJS + ESM build
 - Full TypeScript support
 - Tree-shakeable
+- **< 500B** minified + gzipped — use `@knide/pathnorm/posix` for an even lighter bundle in browser-only contexts
 
 ## Installation
 
