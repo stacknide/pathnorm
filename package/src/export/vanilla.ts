@@ -1,1 +1,0 @@
-export { addNumber } from '../addNumber'

@@ -8,7 +8,7 @@ export default defineConfig((options) => {
 		dts: true,
 		entry: {
 			index: 'src/index.ts',
-			react: 'src/export/react.ts',
+			posix: 'src/posix.ts',
 		},
 		format: ['cjs', 'esm'], // Output formats
 		minify: !isDev,

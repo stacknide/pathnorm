@@ -5,7 +5,9 @@
   "scripts": {
     "publish": "yarn changeset publish",
     "version": "yarn changeset",
-    "dev": "yarn workspace your-package-name dev"
+    "dev": "yarn workspace pathnorm dev",
+    "build": "yarn workspace pathnorm build",
+    "test": "yarn workspace pathnorm-test test"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",
@@ -15,7 +17,7 @@
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
-  "author": "Author of your-package-name",
+  "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",
   "workspaces": [
     "package"
