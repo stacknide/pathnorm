@@ -1,5 +1,11 @@
 # @knide/pathnorm
 
+## 1.0.3
+
+### Patch Changes
+
+- 4efb2bd: fix: add directory field to repository in package.json
+
 ## 1.0.2
 
 ### Patch Changes
