@@ -47,7 +47,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stacknide/pathnorm"
+    "url": "https://github.com/stacknide/pathnorm.git",
+    "directory": "package"
   },
   "bugs": {
     "url": "https://github.com/stacknide/pathnorm/issues"
