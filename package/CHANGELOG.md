@@ -1,5 +1,11 @@
 # @knide/pathnorm
 
+## 1.0.4
+
+### Patch Changes
+
+- 2353821: fix: update homepage URL in package.json to include directory path
+
 ## 1.0.3
 
 ### Patch Changes
