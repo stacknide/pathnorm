@@ -25,8 +25,8 @@ pnpm add @knide/pathnorm
 
 | Import                  | Win32 | UNC | Namespace | URLs | POSIX |
 |-------------------------|-------|-----|-----------|------|-------|
-| `@knide/pathnorm`       |  ✅   | ✅  |    ✅     |  ✅  |   ✅  |  
-| `@knide/pathnorm/posix` |  ❌   | ❌  |    ❌     |  ✅  |   ✅  |  
+| `@knide/pathnorm`       | ✅    | ✅  | ✅        | ✅   | ✅    |  
+| `@knide/pathnorm/posix` | ❌    | ❌  | ❌        | ✅   | ✅    |  
 
 Use `@knide/pathnorm/posix` in browser or web server contexts where Win32 paths will never appear — it's lighter and purpose-built for URLs and POSIX paths.
 
@@ -80,7 +80,7 @@ np("C:\\projects//my-app\\\\src")
 
 ### `unixNp(...parts)` (always forward slashes)
 
-Like `np`, but always returns forward slashes. Useful when working with Win32 paths in a Unix-expecting context.
+Like `np`, but always returns a Unix-style path with forward slashes. Useful when working with Win32 paths in a Unix-expecting context.
 
 ```ts
 import { unixNp } from '@knide/pathnorm'
