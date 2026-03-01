@@ -1,5 +1,11 @@
 # @knide/pathnorm
 
+## 1.0.2
+
+### Patch Changes
+
+- cabb063: docs: clarify description of `unixNp` function in README
+
 ## 1.0.1
 
 ### Patch Changes
